@@ -42,39 +42,21 @@ class myStack:
 
     #Sort the given stack using 1 temp variable and 1 tempStack
     def sortStack(self):
-        #First check if the stack is empty
-        if self.stack == []:
-            return print(IndexError("The stack is currently empty, we cannot sort it"))
-
-        #Temp variable to help with the sorting
-        temp = 0
-
-        #Loop to sort the entire stack
         while self.stack != []:
-            #Make the temp value the popped value of the reg stack
             temp = self.stack.pop()
-            if self.tempStack == []:
-                #If temp stack is empty, just append it to temp stack
-                self.tempStack.append(temp)
-                #Set temp back to 0
-                temp = 0
-            else:
-                while self.tempStack[-1] < temp:
-                    self.stack.append(self.tempStack.pop())
-                    #Then add the temp to the tempStack
-                    self.tempStack.append(temp)
-                    #Then set temp back to 0
-                    temp = 0
-                else:
-                    self.tempStack.append(temp)
-                    temp = 0
-        #After the reg stack is empty and tempStack has all sorted itself out
-        #Append tempStack to stack and it should append it in reverse giving you the smallest to biggest
-        self.stack = self.tempStack
-        #After using temp stack, set it back to empty
-        self.tempStack = []
-        print(self.stack)
+            while self.tempStack != [] and self.tempStack[-1] > temp:
+                self.stack.append(self.tempStack.pop())
+            self.tempStack.append(temp)
+        while self.tempStack != []:
+            self.stack.append(self.tempStack.pop())
+        return self.stack
 
+
+
+
+
+
+        
 myList = myStack()
 myList.stack.append(8)
 myList.stack.append(3)
@@ -90,7 +72,7 @@ myList2.stack.append(1)
 myList2.stack.append(8)
 myList2.stack.append(2)
 
-myList2.sortStack()
+print(myList2.sortStack())
 
 
 
