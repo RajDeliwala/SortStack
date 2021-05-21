@@ -13,7 +13,7 @@ Does the sort need to be addressed everytime a push or pop is called? or wil it 
 Seems like a function for the sort will be seperate from the push and pop
 Solution notes:
 
-
+I lost full
 '''
 class myStack:
 
